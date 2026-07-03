@@ -1,4 +1,5 @@
 import time
+import os
 from abc import ABC, abstractmethod
 import httpx
 from typing import Optional
@@ -71,16 +72,60 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
 
         # Stream response to allow early abort on large Content-Length
         async with client.stream(method, url, headers=merged_headers, timeout=timeout, **kwargs) as response:
-            if response.status_code == 304:
+            status_code = response.status_code
+            headers_dict = dict(response.headers)
+            final_url = str(response.url)
+
+            if status_code == 304:
                 elapsed = (time.monotonic() - start) * 1000
                 return FetchResult(
                     url=url,
                     status_code=304,
                     content=b"",
-                    headers=dict(response.headers),
+                    headers=headers_dict,
                     elapsed_ms=round(elapsed, 2),
-                    final_url=str(response.url),
+                    final_url=final_url,
                 )
+
+            # Check if we got a bot block (403/429) and have DeepCrawl configured
+            api_key = os.environ.get("DEEPCRAWL_API_KEY") if status_code in {403, 429} else None
+            if api_key:
+                # Import os inside fetch just in case, but it's already globally imported
+                import os
+                # Fallback to Deepcrawl API transparently
+                try:
+                    payload = {
+                        "url": url,
+                        "includeHtml": True,
+                        "includeMarkdown": True,
+                        "includeMetadata": True,
+                        "includeLinks": True,
+                    }
+                    dc_headers = {
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json",
+                    }
+                    async with httpx.AsyncClient(timeout=timeout) as dc_client:
+                        dc_resp = await dc_client.post(
+                            "https://api.deepcrawl.dev/read",
+                            headers=dc_headers,
+                            json=payload,
+                        )
+                    if dc_resp.status_code == 200:
+                        dc_data = dc_resp.json()
+                        html_content = dc_data.get("html") or dc_data.get("cleanedHtml") or ""
+                        elapsed = (time.monotonic() - start) * 1000
+                        return FetchResult(
+                            url=url,
+                            status_code=200,
+                            content=html_content.encode("utf-8"),
+                            headers={**headers_dict, "content-type": "text/html"},
+                            elapsed_ms=round(elapsed, 2),
+                            final_url=final_url,
+                        )
+                except Exception as dc_err:
+                    # Log the deepcrawl error and fall through to original 403/429 response
+                    pass
 
             content_length = response.headers.get("Content-Length")
             if content_length and int(content_length) > MAX_DOWNLOAD_SIZE:
@@ -94,11 +139,11 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
 
         return FetchResult(
             url=url,
-            status_code=response.status_code,
+            status_code=status_code,
             content=content,
-            headers=dict(response.headers),
+            headers=headers_dict,
             elapsed_ms=round(elapsed, 2),
-            final_url=str(response.url),
+            final_url=final_url,
         )
 
     async def download_stream(
