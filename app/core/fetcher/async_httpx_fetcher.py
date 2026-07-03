@@ -90,8 +90,6 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
             # Check if we got a bot block (403/429) and have DeepCrawl configured
             api_key = os.environ.get("DEEPCRAWL_API_KEY") if status_code in {403, 429} else None
             if api_key:
-                # Import os inside fetch just in case, but it's already globally imported
-                import os
                 # Fallback to Deepcrawl API transparently
                 try:
                     payload = {
