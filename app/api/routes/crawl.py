@@ -7,7 +7,7 @@ import time
 import threading
 from fastapi import APIRouter, Query, BackgroundTasks
 from pydantic import BaseModel
-from core.fetcher.httpx_fetcher import HttpxFetcher
+from core.fetcher.async_httpx_fetcher import AsyncHttpxFetcher
 from core.parser.bs4_parser import BS4Parser
 from core.extractor.metadata_extractor import DefaultMetadataExtractor
 from core.extractor.links_extractor import DefaultLinksExtractor
@@ -26,7 +26,7 @@ router = APIRouter(prefix="/crawl", tags=["crawl"])
 _crawl_jobs = JobStore(max_jobs=20)
 
 # Singletons — created once, reused
-_fetcher     = HttpxFetcher()
+_fetcher     = AsyncHttpxFetcher()
 _parser      = BS4Parser()
 _meta_ext    = DefaultMetadataExtractor()
 _links_ext   = DefaultLinksExtractor()
@@ -46,7 +46,7 @@ class CrawlRequest(BaseModel):
 
 
 @router.post("")
-def crawl(req: CrawlRequest):
+async def crawl(req: CrawlRequest):
     """
     Full pipeline:
     1. Fetch URL
@@ -66,7 +66,7 @@ def crawl(req: CrawlRequest):
     # ── Stage 1: Fetch ────────────────────────────────────────────────────────
     t0 = time.monotonic()
     try:
-        result = _fetcher.get(url, timeout=30)
+        result = await _fetcher.get(url, timeout=30)
     except Exception as e:
         return ApiResponse.fail("fetcher", "request_failed", str(e))
     metrics.fetch_time_ms = round((time.monotonic() - t0) * 1000, 2)
@@ -124,12 +124,12 @@ def crawl(req: CrawlRequest):
 
 
 @router.get("/test")
-def crawl_test(
+async def crawl_test(
     url:    str = Query(default="https://www.nasa.gov/"),
     format: str = Query(default="json"),
 ):
     """Quick GET version for browser/Swagger testing."""
-    return crawl(CrawlRequest(url=url, format=format))
+    return await crawl(CrawlRequest(url=url, format=format))
 
 
 # ── Smart Crawl (ScraperEngine with fallback) ─────────────────────────────────
@@ -145,7 +145,7 @@ class SmartCrawlRequest(BaseModel):
 
 
 @router.post("/smart", summary="Smart crawl with quality scoring and fallback")
-def smart_crawl(req: SmartCrawlRequest):
+async def smart_crawl(req: SmartCrawlRequest):
     """
     Smart single-page crawl using ScraperEngine.
     
@@ -158,7 +158,7 @@ def smart_crawl(req: SmartCrawlRequest):
     if not url.startswith(("http://", "https://")):
         return ApiResponse.fail("validator", "invalid_url", "URL must start with http:// or https://")
 
-    result = _engine.scrape(url, timeout=req.timeout)
+    result = await _engine.scrape(url, timeout=req.timeout)
 
     return ApiResponse.ok({
         "url": result.url,

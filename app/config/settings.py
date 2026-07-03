@@ -47,6 +47,9 @@ MAX_SCROLL_ROUNDS_UNLIMITED = 2000
 # ── HTTP settings ─────────────────────────────────────────────────────────────
 REQUEST_TIMEOUT     = 60
 STREAM_CHUNK_SIZE   = 65536
+MAX_CONNECTIONS     = 200
+MAX_KEEPALIVE_CONNECTIONS = 50
+MAX_DOWNLOAD_SIZE   = 100 * 1024 * 1024
 
 # ── Excel export ──────────────────────────────────────────────────────────────
 EXCEL_IMG_WIDTH  = 160

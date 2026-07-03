@@ -1,96 +1,151 @@
-# Scraper Service
+# 🕷️ Scraper Service
 
-A production-grade, modular scraping platform built on FastAPI.
-
-## 🎯 What Is This?
-
-**From:** Facebook post scraper  
-**To:** Universal web crawling platform
-
-Two capabilities in one service:
-
-- **🌐 Recursive Web Crawler** — Full-site crawling with queue-based URL discovery, depth control, domain filtering, robots.txt compliance, and 20+ content type support (HTML, PDF, images, videos, Office docs)
-- **📱 Facebook Scraper** — Scrape posts, reels, page metadata from any Facebook page using Selenium; background jobs with real-time progress polling; Excel export with embedded images
-
----
+**Production-ready web scraping API** with recursive crawling, PDF extraction, metadata analysis, and intelligent content detection.
 
 ## ✨ Key Features
 
-### Recursive Crawler
-✅ Queue-based URL scheduling with priority  
-✅ URL deduplication & normalization  
-✅ Depth-limited crawling  
-✅ Domain whitelisting/blacklisting  
-✅ robots.txt compliance  
-✅ Content-type detection (20+ types)  
-✅ Background jobs with progress tracking  
-✅ Real-time statistics  
+- 🔄 **Recursive Web Crawling** - Multi-depth crawling with queue management
+- 📄 **PDF Processing** - Text extraction with OCR support
+- 🧠 **Content Intelligence** - Automatic content type detection & readability scoring
+- 🔐 **Smart Request Handling** - DeepCrawl API fallback for 403/Cloudflare bypass
+- 🚀 **FastAPI Backend** - High-performance async API
+- 💾 **SQLite Storage** - Structured data storage with metadata
+- 🌐 **Proxy Support** - Automatic IP rotation
+- ⚡ **Rate Limiting** - Domain-based request throttling
+- 📊 **Real-time Progress** - Job status tracking
 
-### Content Processing
-✅ PDF text extraction with OCR fallback  
-✅ Image metadata + OCR  
-✅ HTML metadata extraction  
-✅ Link discovery  
-✅ Video URL extraction  
-
-### Production Features
-✅ Thread-safe operations  
-✅ Graceful error handling  
-✅ Consistent API responses  
-✅ Performance metrics  
-✅ Job management (50 concurrent jobs)  
-
----
-
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
+# Setup
 python3 -m venv venv
-venv/bin/pip install -r requirements.txt --only-binary=:all:
-venv/bin/playwright install chromium
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
+pip install -r requirements.txt
 
+# Configure (optional)
 cp .env.example .env
+# Add DEEPCRAWL_API_KEY for Cloudflare bypass
 
-cd app
-PYTHONPATH=.. ../venv/bin/uvicorn main:app --reload --port 8000
+# Run
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-API → `http://localhost:8000`  
-Swagger → `http://localhost:8000/docs`
+Visit: http://localhost:8000/docs
 
----
+## 📦 Quick Scripts
 
-## Test it immediately (no login needed)
-
+### Download Tax.gov.ae VAT Documents
 ```bash
-# Crawl any URL — full pipeline
-curl "http://localhost:8000/crawl/test?url=https://www.nasa.gov/"
-
-# Check all platforms
-curl http://localhost:8000/platforms
-
-# DB stats
-curl http://localhost:8000/db/stats
+python download_all_vat_docs.py
 ```
 
+### Simple PDF Download (Any Site)
+```bash
+# Edit SEED_URLS in the script
+python download_all_pdfs.py
+```
+
+## 🔧 API Examples
+
+### Recursive Crawl
+```bash
+curl -X POST "http://localhost:8000/crawl/recursive" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://example.com",
+    "max_depth": 3,
+    "max_pages": 100,
+    "workers": 5
+  }'
+```
+
+### Check Status
+```bash
+curl "http://localhost:8000/crawl/recursive/status/{job_id}"
+```
+
+## 📁 Project Structure
+
+```
+scraper-service/
+├── app/
+│   ├── api/routes/          # API endpoints
+│   ├── core/
+│   │   ├── crawler/         # Crawling engine
+│   │   ├── fetcher/         # HTTP clients (with 403 bypass)
+│   │   ├── extractor/       # Content extractors
+│   │   └── content/         # Content analysis
+│   ├── storage/             # Database layer
+│   └── main.py              # FastAPI app
+├── downloads/               # Downloaded files
+├── download_all_vat_docs.py # Tax.gov.ae scraper
+├── download_all_pdfs.py     # Universal PDF downloader
+└── README.md
+```
+
+## 🔐 Environment Variables
+
+```env
+# Optional: For bypassing Cloudflare/403 errors
+DEEPCRAWL_API_KEY=your_key_here
+```
+
+## 📚 Documentation
+
+- [ARCHITECTURE.md](ARCHITECTURE.md) - System design
+- [FEATURES.md](FEATURES.md) - Complete feature list
+- [TEST_GUIDE.md](TEST_GUIDE.md) - Testing instructions
+- [PRODUCTION_ROADMAP.md](PRODUCTION_ROADMAP.md) - Deployment guide
+
+## 🛠️ Tech Stack
+
+- **Backend**: FastAPI, Python 3.10+
+- **HTTP**: httpx (async), requests
+- **Parsing**: BeautifulSoup4, lxml
+- **PDF**: PyPDF2, pytesseract (OCR)
+- **Storage**: SQLite
+- **Rate Limiting**: Custom domain-based limiter
+
+## 📊 Use Cases
+
+- ✅ VAT/Tax documentation scraping
+- ✅ Legal document collection
+- ✅ Government website archival
+- ✅ Competitive intelligence
+- ✅ Content aggregation
+
+## ⚠️ Important Notes
+
+### 403 Error Handling
+This service includes automatic 403 bypass using:
+1. **Enhanced Headers** - Browser-like request headers
+2. **DeepCrawl API** - Fallback for blocked requests (requires API key)
+3. **Rate Limiting** - Prevents IP bans
+
+### Ethical Scraping
+- ✅ Respects robots.txt (can be disabled)
+- ✅ Implements rate limiting
+- ✅ User-Agent identification
+- ⚠️ Always check website Terms of Service
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create feature branch (`git checkout -b feature/amazing`)
+3. Commit changes (`git commit -m 'Add feature'`)
+4. Push to branch (`git push origin feature/amazing`)
+5. Open Pull Request
+
+## 📝 License
+
+MIT License - see LICENSE file
+
+## 🆘 Support
+
+- 📧 Issues: GitHub Issues
+- 📖 Docs: `/docs` endpoint when running
+- 💬 Questions: Open a discussion
+
 ---
 
-## 📖 Documentation
-
-| File | Contents |
-|------|----------|
-| [FEATURES.md](./FEATURES.md) | Every feature with descriptions |
-| [PRODUCTION_ROADMAP.md](./PRODUCTION_ROADMAP.md) | Current vs target state, milestones, architecture scoring |
-| [TEST_GUIDE.md](./TEST_GUIDE.md) | 12 test cases, benchmarks, validation checklist |
-| [IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md) | What was built, stats, architecture flow |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | System design, pipeline, module map, DB schema |
-| [SETUP.md](./SETUP.md) | Installation, login options, troubleshooting |
-
----
-
-## Requirements
-
-- Python 3.11+
-- Node.js 18+ (optional, not required currently)
-- Google Chrome / Chromium
-- ffmpeg (optional, for reel DASH audio merge)
+**Built for production use** • Fast, reliable, and scalable web scraping

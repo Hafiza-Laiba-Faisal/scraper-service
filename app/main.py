@@ -15,14 +15,26 @@ for _p in (_root, _app):
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
+import httpx
 
-from config.settings import APP_TITLE, APP_VERSION
+from config.settings import APP_TITLE, APP_VERSION, MAX_CONNECTIONS, MAX_KEEPALIVE_CONNECTIONS
+from core.fetcher import client as global_client
 from api.routes import auth, scrape, storage, proxy, crawl, recursive
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    limits = httpx.Limits(max_connections=MAX_CONNECTIONS, max_keepalive_connections=MAX_KEEPALIVE_CONNECTIONS)
+    global_client.async_client = httpx.AsyncClient(http2=False, limits=limits, follow_redirects=True)
+    yield
+    if global_client.async_client:
+        await global_client.async_client.aclose()
 
 app = FastAPI(
     title=APP_TITLE,
     version=APP_VERSION,
     description="Modular scraping platform — Facebook, social media, general web crawler.",
+    lifespan=lifespan,
 )
 
 app.add_middleware(

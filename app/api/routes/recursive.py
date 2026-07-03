@@ -30,7 +30,7 @@ class RecursiveCrawlRequest(BaseModel):
     workers: int = Field(1, ge=1, le=20, description="Concurrent workers")
 
 
-def _execute_recursive_crawl(job_id: str, request: RecursiveCrawlRequest):
+async def _execute_recursive_crawl(job_id: str, request: RecursiveCrawlRequest):
     """Background task to execute recursive crawl."""
     job = _crawl_jobs.get_job(job_id)
     if not job:
@@ -83,7 +83,7 @@ def _execute_recursive_crawl(job_id: str, request: RecursiveCrawlRequest):
         )
 
         # Execute crawl
-        crawler.crawl()
+        await crawler.crawl()
         stats = crawler.get_stats()
 
         # Store results
@@ -111,7 +111,7 @@ def _execute_recursive_crawl(job_id: str, request: RecursiveCrawlRequest):
 
 
 @router.post("/recursive", summary="Start recursive crawl")
-def start_recursive_crawl(request: RecursiveCrawlRequest, background_tasks: BackgroundTasks):
+async def start_recursive_crawl(request: RecursiveCrawlRequest, background_tasks: BackgroundTasks):
     """
     Start a recursive website crawl with queue-based URL discovery.
     
@@ -158,7 +158,7 @@ def start_recursive_crawl(request: RecursiveCrawlRequest, background_tasks: Back
 
 
 @router.get("/recursive/status/{job_id}", summary="Get crawl status")
-def get_crawl_status(job_id: str):
+async def get_crawl_status(job_id: str):
     """Get status and results of a recursive crawl job."""
     job = _crawl_jobs.get_job(job_id)
     if not job:
@@ -180,14 +180,14 @@ def get_crawl_status(job_id: str):
 
 
 @router.get("/recursive/jobs", summary="List all crawl jobs")
-def list_crawl_jobs():
+async def list_crawl_jobs():
     """List all recursive crawl jobs."""
     jobs = _crawl_jobs.list_jobs()
     return ApiResponse.ok({"jobs": jobs, "count": len(jobs)})
 
 
 @router.delete("/recursive/{job_id}", summary="Delete crawl job")
-def delete_crawl_job(job_id: str):
+async def delete_crawl_job(job_id: str):
     """Delete a crawl job by ID."""
     if _crawl_jobs.delete_job(job_id):
         return ApiResponse.ok({"deleted": job_id})
