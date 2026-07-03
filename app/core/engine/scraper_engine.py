@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
 from core.engine.quality_scorer import QualityScorer
-from core.fetcher.httpx_fetcher import HttpxFetcher
+from core.fetcher.async_httpx_fetcher import AsyncHttpxFetcher
 from core.parser.bs4_parser import BS4Parser
 from core.extractor.metadata_extractor import DefaultMetadataExtractor
 from core.extractor.links_extractor import DefaultLinksExtractor
@@ -45,14 +45,14 @@ class BaseScraperAdapter(ABC):
     name: str
 
     @abstractmethod
-    def scrape(self, url: str, timeout: int = 30) -> ScrapeResult: ...
+    async def scrape(self, url: str, timeout: int = 30) -> ScrapeResult: ...
 
 
 class NativeAdapter(BaseScraperAdapter):
     name = "native"
 
     def __init__(self):
-        self.fetcher = HttpxFetcher()
+        self.fetcher = AsyncHttpxFetcher()
         self.parser = BS4Parser()
         self.metadata_extractor = DefaultMetadataExtractor()
         self.links_extractor = DefaultLinksExtractor()
@@ -63,14 +63,14 @@ class NativeAdapter(BaseScraperAdapter):
             JavaScriptRequiredDetector(),
         ]
 
-    def scrape(self, url: str, timeout: int = 30) -> ScrapeResult:
+    async def scrape(self, url: str, timeout: int = 30) -> ScrapeResult:
         result = ScrapeResult(url=url, adapter_used=self.name)
         timing = {}
         start = time.perf_counter()
 
         try:
             t0 = time.perf_counter()
-            fetch_result = self.fetcher.fetch(url, timeout=timeout)
+            fetch_result = await self.fetcher.fetch(url, timeout=timeout)
             timing["fetch_ms"] = round((time.perf_counter() - t0) * 1000, 2)
 
             result.status_code = fetch_result.status_code
@@ -123,18 +123,89 @@ class NativeAdapter(BaseScraperAdapter):
 
 
 class DeepCrawlAdapter(BaseScraperAdapter):
+    """
+    Adapter for deepcrawl.dev — a free, open-source Firecrawl alternative.
+    API docs: https://deepcrawl.dev/docs/features/read/read-url
+    Set DEEPCRAWL_API_KEY in your .env to enable.
+    """
     name = "deepcrawl"
+    _BASE_URL = "https://api.deepcrawl.dev"
 
     @property
     def configured(self) -> bool:
         return bool(os.environ.get("DEEPCRAWL_API_KEY"))
 
-    def scrape(self, url: str, timeout: int = 30) -> ScrapeResult:
-        return ScrapeResult(
-            url=url,
-            adapter_used=self.name,
-            error="DeepCrawl adapter not configured. Set DEEPCRAWL_API_KEY.",
-        )
+    async def scrape(self, url: str, timeout: int = 30) -> ScrapeResult:
+        api_key = os.environ.get("DEEPCRAWL_API_KEY")
+        if not api_key:
+            return ScrapeResult(
+                url=url,
+                adapter_used=self.name,
+                error="DeepCrawl adapter not configured. Set DEEPCRAWL_API_KEY in .env.",
+            )
+
+        result = ScrapeResult(url=url, adapter_used=self.name)
+        start = time.perf_counter()
+
+        try:
+            import httpx
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            }
+            payload = {
+                "url": url,
+                "includeHtml": True,
+                "includeMarkdown": True,
+                "includeMetadata": True,
+                "includeLinks": True,
+            }
+
+            async with httpx.AsyncClient(timeout=timeout) as client:
+                resp = await client.post(
+                    f"{self._BASE_URL}/read",
+                    headers=headers,
+                    json=payload,
+                )
+
+            result.status_code = resp.status_code
+
+            if resp.status_code != 200:
+                result.error = f"DeepCrawl API returned HTTP {resp.status_code}: {resp.text[:200]}"
+                result.elapsed_ms = round((time.perf_counter() - start) * 1000, 2)
+                return result
+
+            data = resp.json()
+
+            # Map deepcrawl.dev response fields to ScrapeResult
+            metadata = data.get("metadata") or {}
+            result.title = metadata.get("title", "") or ""
+            result.description = metadata.get("description", "") or ""
+            result.metadata = metadata
+
+            html_content = data.get("html") or data.get("cleanedHtml") or ""
+            result.html_length = len(html_content)
+            result.content_type = "text/html"
+
+            links = data.get("links") or []
+            result.links = [lnk.get("url", lnk) if isinstance(lnk, dict) else lnk for lnk in links]
+            result.links_count = len(result.links)
+
+            # Store markdown for downstream consumers
+            result.readability = {
+                "markdown": data.get("markdown") or "",
+                "clean_text": data.get("cleanedText") or "",
+            }
+
+        except Exception as e:
+            result.error = f"DeepCrawl request failed: {e}"
+
+        result.elapsed_ms = round((time.perf_counter() - start) * 1000, 2)
+        return result
+
+
+# Status codes that indicate bot blocking — trigger fallback immediately
+_BOT_BLOCK_CODES = {403, 429, 503}
 
 
 class ScraperEngine:
@@ -144,8 +215,14 @@ class ScraperEngine:
         self.scorer = QualityScorer()
         self.fallback_threshold = fallback_threshold
 
-    def scrape(self, url: str, timeout: int = 30) -> ScrapeResult:
-        result = self.primary.scrape(url, timeout=timeout)
+    async def scrape(self, url: str, timeout: int = 30) -> ScrapeResult:
+        result = await self.primary.scrape(url, timeout=timeout)
+
+        # Immediately fall back on bot-block codes (403, 429, 503)
+        if result.status_code in _BOT_BLOCK_CODES and self.fallback.configured:
+            fallback_result = await self.fallback.scrape(url, timeout=timeout)
+            fallback_result.timing = result.timing  # preserve native timing
+            return fallback_result
 
         score_data = self.scorer.score({
             "title": result.title,
@@ -158,9 +235,10 @@ class ScraperEngine:
         result.quality_score = score_data["score"]
         result.quality_level = score_data["quality"]
 
+        # Quality-score-based fallback
         normalized = score_data["score"] / 100.0
         if normalized < self.fallback_threshold and self.fallback.configured:
-            fallback_result = self.fallback.scrape(url, timeout=timeout)
+            fallback_result = await self.fallback.scrape(url, timeout=timeout)
             fallback_score = self.scorer.score({
                 "title": fallback_result.title,
                 "html_length": fallback_result.html_length,
