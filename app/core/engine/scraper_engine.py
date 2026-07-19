@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 from core.engine.quality_scorer import QualityScorer
 from core.fetcher.async_httpx_fetcher import AsyncHttpxFetcher
+from core.fetcher.escalating_fetcher import EscalatingFetcher
 from core.parser.bs4_parser import BS4Parser
 from core.extractor.metadata_extractor import DefaultMetadataExtractor
 from core.extractor.links_extractor import DefaultLinksExtractor
@@ -52,7 +53,7 @@ class NativeAdapter(BaseScraperAdapter):
     name = "native"
 
     def __init__(self):
-        self.fetcher = AsyncHttpxFetcher()
+        self.fetcher = EscalatingFetcher()
         self.parser = BS4Parser()
         self.metadata_extractor = DefaultMetadataExtractor()
         self.links_extractor = DefaultLinksExtractor()

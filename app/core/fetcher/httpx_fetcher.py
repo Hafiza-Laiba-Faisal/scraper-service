@@ -40,4 +40,6 @@ class HttpxFetcher(BaseFetcher):
             headers=dict(resp.headers),
             elapsed_ms=round(elapsed, 2),
             final_url=str(resp.url),
+            cookies={},
+            error=None if resp.status_code < 400 else f'HTTP {resp.status_code}',
         )

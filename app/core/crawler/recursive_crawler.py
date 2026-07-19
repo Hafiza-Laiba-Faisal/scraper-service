@@ -16,6 +16,7 @@ from urllib.parse import urlparse, urljoin
 
 
 from core.fetcher.async_httpx_fetcher import AsyncHttpxFetcher
+from core.fetcher.escalating_fetcher import EscalatingFetcher
 from core.crawler.rate_limiter import AsyncDomainRateLimiter
 from core.parser.bs4_parser import BS4Parser
 from core.extractor.metadata_extractor import DefaultMetadataExtractor
@@ -109,7 +110,7 @@ class RecursiveCrawler:
             blocked_domains=blocked_domains,
             respect_robots=respect_robots,
         )
-        self.fetcher = AsyncHttpxFetcher()
+        self.fetcher = EscalatingFetcher()
         self.rate_limiter = AsyncDomainRateLimiter()
         self.parser = BS4Parser()
         self.meta_extractor = DefaultMetadataExtractor()

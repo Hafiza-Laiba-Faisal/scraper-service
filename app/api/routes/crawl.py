@@ -8,6 +8,7 @@ import threading
 from fastapi import APIRouter, Query, BackgroundTasks
 from pydantic import BaseModel
 from core.fetcher.async_httpx_fetcher import AsyncHttpxFetcher
+from core.fetcher.escalating_fetcher import EscalatingFetcher
 from core.parser.bs4_parser import BS4Parser
 from core.extractor.metadata_extractor import DefaultMetadataExtractor
 from core.extractor.links_extractor import DefaultLinksExtractor
@@ -26,7 +27,7 @@ router = APIRouter(prefix="/crawl", tags=["crawl"])
 _crawl_jobs = JobStore(max_jobs=20)
 
 # Singletons — created once, reused
-_fetcher     = AsyncHttpxFetcher()
+_fetcher     = EscalatingFetcher()
 _parser      = BS4Parser()
 _meta_ext    = DefaultMetadataExtractor()
 _links_ext   = DefaultLinksExtractor()

@@ -46,3 +46,7 @@ class MemoryCache(BaseCache):
 
 # Module-level default instance
 default_cache = MemoryCache()
+
+# Cloudflare clearance cookie cache (per-domain, short TTL)
+# Separate from default_cache so it can be independently monitored/flushed.
+cf_cache = MemoryCache()

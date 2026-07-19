@@ -1,6 +1,10 @@
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+venv/
+.env
+output/
 *.db
 *.db-shm
 *.db-wal
-downloads/
+.opencode/

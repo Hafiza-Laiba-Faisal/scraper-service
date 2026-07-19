@@ -85,6 +85,8 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
                     headers=headers_dict,
                     elapsed_ms=round(elapsed, 2),
                     final_url=final_url,
+                    cookies={},
+                    error=None if status_code < 400 else f'HTTP {status_code}',
                 )
 
             # Check if we got a bot block (403/429) and have DeepCrawl configured
@@ -125,6 +127,8 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
                             headers={**headers_dict, "content-type": "text/html"},
                             elapsed_ms=round(elapsed, 2),
                             final_url=final_url,
+                            cookies={},
+                            error=None,
                         )
                     else:
                         logger.warning(f"[DeepCrawl] API failed with status {dc_resp.status_code}")
@@ -141,6 +145,30 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
 
             content = await response.aread()
 
+            # Decompress if the server sent gzip/deflate/br (httpx.stream()
+            # does NOT auto-decode, unlike httpx.Client.request()).
+            ce = headers_dict.get("content-encoding", "").lower()
+            if ce in ("gzip", "x-gzip"):
+                import gzip
+                try:
+                    content = gzip.decompress(content)
+                except Exception:
+                    pass
+            elif ce == "deflate":
+                import zlib
+                try:
+                    content = zlib.decompress(content)
+                except Exception:
+                    pass
+            elif ce == "br":
+                try:
+                    import brotli
+                    content = brotli.decompress(content)
+                except ImportError:
+                    pass
+                except Exception:
+                    pass
+
         elapsed = (time.monotonic() - start) * 1000
 
         return FetchResult(
@@ -150,6 +178,8 @@ class AsyncHttpxFetcher(AsyncBaseFetcher):
             headers=headers_dict,
             elapsed_ms=round(elapsed, 2),
             final_url=final_url,
+            cookies={},
+            error=None if status_code < 400 else f'HTTP {status_code}',
         )
 
     async def download_stream(

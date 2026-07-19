@@ -5,7 +5,8 @@ No parsing, no extraction, no business logic.
 
 from __future__ import annotations
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Optional
 
 
 @dataclass
@@ -15,7 +16,9 @@ class FetchResult:
     content:      bytes
     headers:      dict
     elapsed_ms:   float = 0.0
-    final_url:    str   = ""   # after redirects
+    final_url:    str   = ""
+    cookies:      dict  = field(default_factory=dict)
+    error:        Optional[str] = None
 
     @property
     def text(self) -> str:
