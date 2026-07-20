@@ -169,6 +169,14 @@ export interface RecursiveCrawlRequest {
   follow_external?: boolean;
   workers?: number;
 }
+
+export interface FullCrawlRequest {
+  url: string;
+  max_depth?: number;
+  max_pages?: number;
+  download_images?: boolean;
+  download_pdfs?: boolean;
+}
 ```
 
 ## API Client (`src/lib/api.ts`)
@@ -225,12 +233,20 @@ export const startRecursiveCrawl = (data: RecursiveCrawlRequest) => api.post("/c
 export const getRecursiveStatus = (jobId: string) => api.get(`/crawl/recursive/status/${jobId}`);
 export const listRecursiveJobs = () => api.get("/crawl/recursive/jobs");
 export const deleteRecursiveJob = (jobId: string) => api.delete(`/crawl/recursive/${jobId}`);
+
+// ── Full Crawl ──
+export const startFullCrawl = (data: FullCrawlRequest) => api.post("/crawl/full", data);
+export const getFullCrawlStatus = (jobId: string) => api.get(`/crawl/full/status/${jobId}`);
+export const listFullCrawlJobs = () => api.get("/crawl/full/jobs");
+export const deleteFullCrawlJob = (jobId: string) => api.delete(`/crawl/full/${jobId}`);
+export const getFullCrawlFile = (jobId: string, filePath: string) =>
+  api.get(`/crawl/full/output/${jobId}/${filePath}`, { responseType: "blob" });
 ```
 
 ## Page-by-Page Blueprint
 
 ### 1. Layout (`Layout.tsx`)
-- Persistent sidebar with nav links: Dashboard, Crawl, Crawl (Recursive), WordPress, Facebook, Profile, Database, Sessions, Auth, Export
+- Persistent sidebar with nav links: Dashboard, Full Site Crawl, Crawl (Single), Crawl (Recursive), WordPress, Facebook, Profile, Database, Sessions, Auth, Export
 - Topbar showing service name + status indicator (hit `GET /`)
 - `<Outlet />` for page content
 - Sidebar collapses on mobile
@@ -241,7 +257,18 @@ export const deleteRecursiveJob = (jobId: string) => api.delete(`/crawl/recursiv
 - Quick-action buttons: "New Crawl", "Scrape WordPress", "Facebook Scrape"
 - Metrics panel showing `elapsed_ms` from last crawl
 
-### 3. Crawl Page (`CrawlPage.tsx`)
+### 3. Full Site Crawl (`FullCrawlPage.tsx`)
+- Form: URL, max_depth, max_pages, download_images checkbox, download_pdfs checkbox
+- Submit → `POST /crawl/full` → show `job_id` + `poll_url`
+- Active jobs list from `GET /crawl/full/jobs` — poll running jobs every 3s
+- Completed result shows:
+  - Detection badge (WordPress / generic)
+  - Strategy used, languages found
+  - Stats cards: pages_found, content_files, images_downloaded, pdfs_downloaded
+  - Per-language breakdown table
+  - "View Files" button → `GET /crawl/full/output/{job_id}/{path}` opens/downloads
+
+### 4. Crawl Page (`CrawlPage.tsx`)
 - Form: URL input + format dropdown (json/markdown)
 - Sent on submit to `POST /crawl`
 - Display result: title, description, og_image, links (scrollable list), detectors status, metadata table
@@ -350,6 +377,7 @@ export const deleteRecursiveJob = (jobId: string) => api.delete(`/crawl/recursiv
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Dashboard from "./pages/Dashboard";
+import FullCrawlPage from "./pages/FullCrawlPage";
 import CrawlPage from "./pages/CrawlPage";
 import RecursiveCrawl from "./pages/RecursiveCrawl";
 import WordPressScrape from "./pages/WordPressScrape";
@@ -366,6 +394,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="full-crawl" element={<FullCrawlPage />} />
           <Route path="crawl" element={<CrawlPage />} />
           <Route path="crawl/recursive" element={<RecursiveCrawl />} />
           <Route path="wordpress" element={<WordPressScrape />} />

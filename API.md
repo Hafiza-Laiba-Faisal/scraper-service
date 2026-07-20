@@ -254,6 +254,79 @@ Delete a recursive crawl job.
 
 ---
 
+## 7. Full Site Crawl (`/crawl/full`)
+
+### `POST /crawl/full`
+Unified endpoint — auto-detect site type, discover all pages, extract text, download images + PDFs, group by language.
+
+```json
+{
+  "url": "https://example.com",
+  "max_depth": 3,
+  "max_pages": 50,
+  "download_images": true,
+  "download_pdfs": true
+}
+```
+
+Returns: `{"job_id", "status": "pending", "message", "poll_url": "/crawl/full/status/{job_id}"}`
+
+### `GET /crawl/full/status/{job_id}`
+Poll job progress.
+
+When `status == "done"`, `result` contains:
+- `url`, `is_wordpress`, `strategy`, `languages`
+- `pages_found`, `content_files`, `images_discovered`, `images_downloaded`, `pdfs_discovered`, `pdfs_downloaded`
+- `pages_by_language` (lang → count)
+- `output_dir`, `elapsed_ms`
+
+### `GET /crawl/full/jobs`
+List all full crawl jobs.
+
+### `DELETE /crawl/full/{job_id}`
+Delete a full crawl job.
+
+### `GET /crawl/full/output/{job_id}/{file_path}`
+Serve downloaded files (images, PDFs, page markdown).  
+Example: `GET /crawl/full/output/abc12345/images/en/hotel_room.jpg`
+
+### `FullCrawlRequest` Schema
+| Field | Type | Default | Range | Description |
+|-------|------|---------|-------|-------------|
+| `url` | `str` | *required* | — | Site URL |
+| `max_depth` | `int` | `3` | 1–10 | Max crawl depth |
+| `max_pages` | `int` | `50` | 1–1000 | Max pages to crawl |
+| `download_images` | `bool` | `true` | — | Download images per-page |
+| `download_pdfs` | `bool` | `true` | — | Download PDFs from WP media + HTML links |
+
+---
+
+## Output Structure
+
+Crawl results saved to `crawl_output/{domain}/`:
+
+```
+crawl_output/
+  example_com/
+    index.json                    # Full metadata index
+    pages/
+      en/                         # Pages by detected language
+        Homepage.md
+        About.md
+      fr/
+        Accueil.md
+    images/
+      en/                         # Images grouped by page language
+        Homepage_hero.jpg
+        About_team_png
+      fr/
+        Accueil_banniere.jpg
+    pdfs/                         # All PDFs (flat, no language group)
+        brochure.pdf
+```
+
+---
+
 ## Quick Start
 
 ```bash
@@ -261,7 +334,18 @@ Delete a recursive crawl job.
 cd app
 ../venv/bin/uvicorn main:app --reload --port 8000
 
-# Test crawl
+# Full site crawl (unified — text + images + PDFs)
+curl -X POST http://localhost:8000/crawl/full \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://example.com", "max_depth": 2, "max_pages": 50}'
+
+# Poll status
+curl http://localhost:8000/crawl/full/status/{job_id}
+
+# Serve downloaded file
+curl http://localhost:8000/crawl/full/output/{job_id}/images/en/hero.jpg -o hero.jpg
+
+# Test single-page crawl
 curl http://localhost:8000/crawl/test?url=https://example.com
 
 # Scrape WordPress

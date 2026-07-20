@@ -20,7 +20,7 @@ import httpx
 
 from config.settings import APP_TITLE, APP_VERSION, MAX_CONNECTIONS, MAX_KEEPALIVE_CONNECTIONS
 from core.fetcher import client as global_client
-from api.routes import auth, scrape, storage, proxy, crawl, recursive
+from api.routes import auth, scrape, storage, proxy, crawl, recursive, full_crawl
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -52,6 +52,7 @@ app.include_router(storage.router)
 app.include_router(proxy.router)
 app.include_router(crawl.router)
 app.include_router(recursive.router)
+app.include_router(full_crawl.router)
 
 
 # ── Root ──────────────────────────────────────────────────────────────────────
@@ -62,13 +63,15 @@ def root():
         "version":  APP_VERSION,
         "docs":     "/docs",
         "endpoints": {
-            "crawl":           "POST /crawl  |  GET /crawl/test?url=...",
-            "smart_crawl":     "POST /crawl/smart (quality scoring + fallback)",
-            "recursive_crawl": "POST /crawl/recursive",
-            "fb_posts":        "POST /scrape/fb-posts",
-            "auth":            "POST /auth/fb-login",
-            "db":              "GET /db/posts",
-            "proxy":           "GET /proxy/media",
+            "crawl":            "POST /crawl  |  GET /crawl/test?url=...",
+            "smart_crawl":      "POST /crawl/smart (quality scoring + fallback)",
+            "recursive_crawl":  "POST /crawl/recursive",
+            "full_site_crawl":  "POST /crawl/full (unified: text + images + PDFs)",
+            "fb_posts":         "POST /scrape/fb-posts",
+            "wordpress":        "POST /scrape/wordpress",
+            "auth":             "POST /auth/fb-login",
+            "db":               "GET /db/posts",
+            "proxy":            "GET /proxy/media",
         },
     }
 
