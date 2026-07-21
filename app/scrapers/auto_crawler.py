@@ -177,22 +177,22 @@ class AutoCrawler:
                 result.stats["images_downloaded"] = total_dl
                 result.stats["images_discovered"] = len(all_images)
 
-            all_pdf_items = list(all_media)
             if download_pdfs:
+                wp_pdfs = [m for m in all_media if m.get("mime") == "application/pdf"]
                 html_pdfs = await self._discover_pdfs_from_pages(all_pages)
-                existing_urls = {p["url"] for p in all_pdf_items}
+                existing_urls = {p["url"] for p in wp_pdfs}
                 for p in html_pdfs:
                     if p["url"] not in existing_urls:
-                        all_pdf_items.append(p)
+                        wp_pdfs.append(p)
 
-                result.pdfs = all_pdf_items
+                result.pdfs = wp_pdfs
                 pdfs_dir = out_dir / "pdfs"
                 pdfs_dir.mkdir(parents=True, exist_ok=True)
                 downloaded = await self._bulk_download(
-                    all_pdf_items, pdfs_dir, "pdf", key="url"
+                    wp_pdfs, pdfs_dir, "pdf", key="url"
                 )
                 result.stats["pdfs_downloaded"] = downloaded
-                result.stats["pdfs_discovered"] = len(all_pdf_items)
+                result.stats["pdfs_discovered"] = len(wp_pdfs)
 
             meta = {
                 "site": url,
@@ -211,7 +211,7 @@ class AutoCrawler:
                 "pages_flat": result.pages,
                 "content_files": content_files,
                 "media": all_media,
-                "pdfs": all_pdf_items,
+                "pdfs": result.pdfs,
                 "stats": result.stats,
             }
             (out_dir / "index.json").write_text(
@@ -258,46 +258,28 @@ class AutoCrawler:
     async def _recursive_discover(
         self, url: str, max_depth: int, max_pages: int
     ) -> list[dict]:
-        from collections import deque
+        from core.crawler.recursive_crawler import RecursiveCrawler
 
-        domain = urlparse(url).netloc.lower()
-        seen = {url}
-        queue = deque([(url, 0)])
+        crawler = RecursiveCrawler(
+            seed_url=url,
+            max_depth=max_depth,
+            max_pages=max_pages,
+            respect_robots=False,
+            timeout=25,
+            workers=3,
+        )
+        results = await crawler.crawl()
+
         discovered = []
-
-        while queue and len(seen) < max_pages:
-            page_url, depth = queue.popleft()
-            if depth > max_depth:
+        for r in results:
+            if r.error:
                 continue
-            try:
-                fr = await self.fetcher.get(page_url, timeout=20)
-                if not fr.ok:
-                    continue
-                tree = self.parser.parse(fr.text)
-                meta = self.meta_ext.extract(tree, page_url)
-                title = meta.get("og_title") or meta.get("title", "") or page_url
-                links = self.links_ext.extract(tree, page_url)
-
-                discovered.append({
-                    "title": title,
-                    "url": page_url,
-                    "depth": depth,
-                    "source": "recursive",
-                })
-
-                if depth < max_depth:
-                    for lnk in links["links"]:
-                        lu = lnk["url"]
-                        if domain in lu and lu not in seen:
-                            if not any(
-                                skip in lu.lower()
-                                for skip in [".pdf", ".jpg", ".png", ".svg", "#"]
-                            ):
-                                if lu.startswith(f"https://{domain}") or lu.startswith(f"http://{domain}"):
-                                    seen.add(lu)
-                                    queue.append((lu, depth + 1))
-            except Exception:
-                continue
+            discovered.append({
+                "title": r.title or urlparse(r.url).path.strip("/") or r.url,
+                "url": r.url,
+                "depth": r.depth,
+                "source": "recursive",
+            })
 
         return discovered
 
