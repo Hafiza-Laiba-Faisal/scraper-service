@@ -61,6 +61,15 @@ class AutoCrawler:
         self.asset_ext = AssetExtractor()
         self.wp_detector = WordPressDetector()
         self.output_base = Path(output_base)
+        self._progress_cb = None
+
+    def set_progress_callback(self, cb):
+        self._progress_cb = cb
+
+    def _progress(self, pct: int, msg: str):
+        logger.info("[%d%%] %s", pct, msg)
+        if self._progress_cb:
+            self._progress_cb(pct, msg)
 
     async def crawl(
         self,
@@ -78,6 +87,7 @@ class AutoCrawler:
         result.output_dir = str(out_dir)
 
         try:
+            self._progress(2, "Fetching homepage...")
             fetch_result = await self.fetcher.get(url)
             if not fetch_result.ok:
                 result.error = f"Failed to fetch: HTTP {fetch_result.status_code}"
@@ -90,16 +100,16 @@ class AutoCrawler:
             is_wp = self.wp_detector.detect(html, url)
             result.is_wordpress = is_wp
 
+            self._progress(8, "Detecting languages...")
             langs = await self._detect_languages(url, html)
             result.languages = langs
-            logger.info("Languages detected: %s", langs)
 
             all_pages: list[dict] = []
             all_media: list[dict] = []
 
             if is_wp:
                 result.strategy_used = "wordpress_rest_api"
-                logger.info("WordPress detected — using REST API")
+                self._progress(12, "WordPress detected — querying REST API...")
                 from .wordpress_scraper import WordPressScraper
                 wp = WordPressScraper()
                 wp_result = await wp.scrape(url, max_pages=10, include_pages=True, include_media=True)
@@ -123,11 +133,12 @@ class AutoCrawler:
             result.pages = all_pages
 
             domain = urlparse(url).netloc.lower()
+            self._progress(15, "Discovering pages via recursive crawl...")
             discovered = await self._recursive_discover(url, max_depth, max_pages)
             discovered_urls = {p["url"] for p in all_pages}
             new_pages = [p for p in discovered if p["url"] not in discovered_urls]
             if new_pages:
-                logger.info("Recursive crawl found %d additional pages", len(new_pages))
+                self._progress(25, f"Found {len(new_pages)} additional pages, extracting content...")
                 all_pages.extend(new_pages)
                 result.strategy_used = "hybrid" if is_wp else "recursive"
 
@@ -155,10 +166,12 @@ class AutoCrawler:
 
             result.pages = all_pages
 
+            self._progress(35, "Extracting page text content...")
             content_files = await self._extract_pages_content(all_pages, out_dir, by_lang, primary_lang, domain)
             result.content_files = content_files
 
             if download_images:
+                self._progress(50, "Discovering images from all pages...")
                 all_images = await self._discover_all_images(all_pages, page_title_map)
                 result.images = all_images
                 imgs_by_lang: dict[str, list[dict]] = {}
@@ -168,16 +181,17 @@ class AutoCrawler:
                     imgs_by_lang.setdefault(img_lang, []).append(img)
 
                 total_dl = 0
-                for lang_code, lang_imgs in sorted(imgs_by_lang.items()):
+                for idx, (lang_code, lang_imgs) in enumerate(sorted(imgs_by_lang.items())):
                     lang_dir = out_dir / "images" / lang_code
                     lang_dir.mkdir(parents=True, exist_ok=True)
+                    self._progress(55 + idx * 10, f"Downloading {len(lang_imgs)} images for language '{lang_code}'...")
                     dl = await self._bulk_download(lang_imgs, lang_dir, f"images/{lang_code}")
                     total_dl += dl
-                logger.info("Downloaded %d/%d images across %d languages", total_dl, len(all_images), len(imgs_by_lang))
                 result.stats["images_downloaded"] = total_dl
                 result.stats["images_discovered"] = len(all_images)
 
             if download_pdfs:
+                self._progress(80, "Discovering and downloading PDFs...")
                 wp_pdfs = [m for m in all_media if m.get("mime") == "application/pdf"]
                 html_pdfs = await self._discover_pdfs_from_pages(all_pages)
                 existing_urls = {p["url"] for p in wp_pdfs}
@@ -194,6 +208,7 @@ class AutoCrawler:
                 result.stats["pdfs_downloaded"] = downloaded
                 result.stats["pdfs_discovered"] = len(wp_pdfs)
 
+            self._progress(95, "Saving results...")
             meta = {
                 "site": url,
                 "is_wordpress": is_wp,
@@ -223,6 +238,7 @@ class AutoCrawler:
             result.stats["media_found"] = len(all_media)
             result.stats["languages"] = langs
             result.stats["content_files_saved"] = len(content_files)
+            self._progress(100, f"Crawl complete — {result.stats['pages_found']} pages, {result.stats.get('images_downloaded', 0)} images, {result.stats.get('pdfs_downloaded', 0)} PDFs")
 
         except Exception as e:
             result.error = str(e)
