@@ -1,0 +1,80 @@
+================================================================================
+PAGE: https://www.aiminingco.com/for/stable-diffusion
+TITLE: Best GPUs for Stable Diffusion & Image Generation — Fit Rankings & Pricing
+================================================================================
+
+OVERVIEW:
+- Category: AI
+- 30 GPUs ranked for Stable Diffusion & Image Generation
+- Minimum VRAM: 8 GB
+- Cheapest viable: $0.11/hr (listing-weighted median)
+- Price range: $0.11 - $7.50/hr
+
+=== TOP PICKS ===
+
+1. BEST OVERALL: A100 PCIe 40GB
+   - Fit Score: 100/100 (Excellent fit)
+   - Price: $1.31/hr
+   - VRAM: 40 GB
+
+2. BEST VALUE: RTX 3060
+   - Fit Score: 65/100 (Good fit)
+   - Price: $0.11/hr
+   - VRAM: 12 GB
+
+3. BEST FOR PRODUCTION: A100 PCIe 40GB
+   - Fit Score: 100/100 (Excellent fit)
+   - Price: $1.31/hr
+   - Class: Datacenter
+
+=== ABOUT STABLE DIFFUSION & IMAGE GENERATION ===
+
+Image generation with diffusion models is one of the most accessible high-end AI workloads.
+- VRAM floor depends on model:
+  - Stable Diffusion 1.5: 6 GB
+  - SDXL: 8-12 GB
+  - FLUX.1 [dev] in full FP16: 24 GB
+- Quantized variants (FP8, NF4) cut requirements roughly in half
+- Dominant frontends: ComfyUI, Automatic1111
+- Training/fine-tuning (DreamBooth, LoRA): 24 GB+
+
+Key hardware considerations:
+- VRAM is the hard floor — undersized GPUs cannot run larger models
+- FP8/NF4 quantization opens up FLUX-class models on consumer cards
+- ComfyUI offers fine-grained memory management for tight VRAM budgets
+- Batch throughput scales with GPU count for commercial workflows
+
+=== FULL GPU RANKING (30 GPUs) ===
+
+Rank | GPU                          | Fit | VRAM    | Class        | $/hr
+-----|------------------------------|-----|---------|--------------|------
+1    | A100 PCIe 40GB               | 100 | 40 GB   | Datacenter   | $1.31
+2    | A100 PCIe 80GB               | 100 | 80 GB   | Datacenter   | $3.13
+3    | A100 SXM 40GB                | 100 | 40 GB   | Datacenter   | $0.79
+4    | A100 SXM 80GB                | 100 | 80 GB   | Datacenter   | $1.38
+5    | A40                          | 100 | 48 GB   | Datacenter   | $0.54
+6    | B200 SXM                     | 100 | 180 GB  | Datacenter   | $5.89
+7    | B300 SXM                     | 100 | 192 GB  | Datacenter   | $7.50
+8    | H100 NVL                     | 100 | 94 GB   | Datacenter   | $3.11
+9    | H100 PCIe                    | 100 | 80 GB   | Datacenter   | $3.19
+10   | H100 SXM                     | 100 | 80 GB   | Datacenter   | $2.99
+11   | H200                         | 100 | 141 GB  | Datacenter   | $4.39
+12   | H200 NVL                     | 100 | 141 GB  | Datacenter   | $3.81
+13   | L4                           | 100 | 24 GB   | Datacenter   | $0.85
+14   | L40                          | 100 | 48 GB   | Datacenter   | $0.86
+15   | L40S                         | 100 | 48 GB   | Datacenter   | $1.59
+16   | MI300X                       | 100 | 192 GB  | Datacenter   | $2.79
+17   | RTX 3090                     | 100 | 24 GB   | Consumer     | $0.41
+18   | RTX 4090                     | 100 | 24 GB   | Consumer     | $0.67
+19   | RTX 5090                     | 100 | 32 GB   | Consumer     | $0.75
+20   | RTX 6000 Ada                 | 100 | 48 GB   | Workstation  | $0.84
+21   | RTX A5000                    | 100 | 24 GB   | Workstation  | $0.27
+22   | RTX A6000                    | 100 | 48 GB   | Workstation  | $0.57
+23   | V100 SXM 32GB                | 100 | 32 GB   | Datacenter   | $0.91
+24   | RTX A4000                    | 90  | 16 GB   | Workstation  | $0.26
+25   | RTX PRO 6000 Blackwell       | 80  | 96 GB   | Workstation  | $1.99
+26   | RTX PRO 4000 Blackwell       | 70  | 20 GB   | Workstation  | $0.50
+27   | T4                           | 70  | 16 GB   | Datacenter   | $0.50
+28   | V100 PCIe 16GB               | 70  | 16 GB   | Datacenter   | $0.32
+29   | V100 SXM 16GB                | 70  | 16 GB   | Datacenter   | $0.80
+30   | RTX 3060                     | 65  | 12 GB   | Consumer     | $0.11

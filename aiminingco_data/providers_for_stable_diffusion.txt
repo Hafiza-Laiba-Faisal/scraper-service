@@ -1,0 +1,72 @@
+================================================================================
+PROVIDERS FOR STABLE DIFFUSION & IMAGE GENERATION
+Source: https://www.aiminingco.com/for/stable-diffusion
+================================================================================
+
+All marketplaces ranked by best-available GPU fit score for Stable Diffusion:
+
+Rank | Provider          | Score | Viable GPUs | Price From
+-----|-------------------|-------|-------------|-----------
+1    | SaladCloud        | 100   | 5           | $0.08/hr
+2    | Akash             | 100   | 8           | $0.10/hr
+3    | QuickPod          | 100   | 7           | $0.10/hr
+4    | DataOorts         | 100   | 7           | $0.13/hr
+5    | Hyperstack        | 100   | 15          | $0.15/hr
+6    | io.net            | 100   | 16          | $0.18/hr
+7    | OpenRelay         | 100   | 5           | $0.18/hr
+8    | Theta EdgeCloud   | 100   | 3           | $0.20/hr
+9    | RunPod            | 100   | 22          | $0.25/hr
+10   | Trooper           | 100   | 6           | $0.27/hr
+11   | CloudRift         | 100   | 5           | $0.28/hr
+12   | SynpixCloud       | 100   | 9           | $0.32/hr
+13   | Hydra Host        | 100   | 7           | $0.34/hr
+14   | Cirrascale        | 100   | 10          | $0.34/hr
+15   | CloudPe           | 100   | 2           | $0.41/hr
+16   | AIME              | 100   | 7           | $0.42/hr
+17   | Massed Compute    | 100   | 12          | $0.44/hr
+18   | NovaCloud         | 100   | 2           | $0.48/hr
+19   | Hugging Face      | 100   | 6           | $0.50/hr
+20   | NeuralRack        | 100   | 2           | $0.55/hr
+21   | Verda             | 100   | 8           | $0.61/hr
+22   | Packet.ai         | 100   | 3           | $0.66/hr
+23   | UpCloud           | 100   | 4           | $0.69/hr
+24   | Qubrid AI         | 100   | 7           | $0.73/hr
+25   | Lambda            | 100   | 5           | $0.79/hr
+26   | OVHcloud          | 100   | 6           | $0.80/hr
+27   | Arkane Cloud      | 100   | 8           | $0.89/hr
+28   | DeepInfra         | 100   | 4           | $0.89/hr
+29   | Cyfuture AI       | 100   | 3           | $1.26/hr
+30   | Thunder Compute   | 100   | 4           | $1.39/hr
+31   | Latitude.sh       | 100   | 2           | $3.37/hr
+32   | Together AI       | 100   | 2           | $3.99/hr
+33   | SimplePod         | 65    | 1           | $0.15/hr
+
+=== SELECTED PROVIDER DETAILS ===
+
+--- SaladCloud ---
+- Viable GPUs: 5
+- Cheapest: $0.08/hr
+- Top GPU: RTX 3090 (100/100, $0.25/hr)
+- Best Value: RTX 3060 (65/100, $0.08/hr)
+
+--- Akash ---
+- Viable GPUs: 8
+- Cheapest: $0.10/hr
+- Top GPU: RTX 3090 (100/100, $0.15/hr)
+- Best Value: RTX 3060 (65/100, $0.10/hr)
+
+--- RunPod ---
+- Viable GPUs: 22
+- Cheapest: $0.25/hr
+- Top GPU: RTX A5000 (100/100, $0.27/hr)
+- Best Value: RTX A4000 (90/100, $0.25/hr)
+
+--- Lambda ---
+- Viable GPUs: 5
+- Cheapest: $0.79/hr
+- Top GPU: A100 SXM 40GB (100/100, $1.99/hr)
+
+--- Together AI ---
+- Viable GPUs: 2
+- Cheapest: $3.99/hr
+- Top GPU: H100 SXM (100/100, $3.99/hr)

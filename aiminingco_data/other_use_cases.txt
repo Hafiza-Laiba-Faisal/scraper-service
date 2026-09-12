@@ -1,0 +1,34 @@
+================================================================================
+OTHER GPU USE CASE PAGES SCRAPED
+================================================================================
+
+1. LLM TRAINING - https://www.aiminingco.com/for/llm-training
+   - 24 GPUs ranked (min 24 GB VRAM)
+   - Price: $0.27 - $7.50/hr
+   - Best Overall: A100 PCIe 80GB (100/100, $3.13/hr)
+   - Best Value: RTX A5000 (40/100, $0.27/hr)
+   - Top datacenter GPUs: A100, H100, H200, B200, B300, MI300X
+
+2. LLM INFERENCE - https://www.aiminingco.com/for/llm-inference
+   - 30 GPUs ranked (min 12 GB VRAM)
+   - Price: $0.11 - $7.50/hr
+   - Best Overall: A100 PCIe 40GB (100/100, $1.31/hr)
+   - Best Value: RTX 3060 (55/100, $0.11/hr)
+
+3. COMPUTER VISION - https://www.aiminingco.com/for/computer-vision
+   - 30 GPUs ranked (min 8 GB VRAM)
+   - Price: $0.11 - $7.50/hr
+   - Best Overall: A100 PCIe 40GB (100/100, $1.31/hr)
+   - Best Value: RTX 3060 (65/100, $0.11/hr)
+
+4. 3D RENDERING - https://www.aiminingco.com/for/3d-rendering
+   - 30 GPUs ranked (min 12 GB VRAM)
+   - Price: $0.11 - $7.50/hr
+   - Best Overall: A100 PCIe 40GB (100/100, $1.31/hr)
+   - Best Value: RTX 3060 (55/100, $0.11/hr)
+
+5. SCIENTIFIC COMPUTING - https://www.aiminingco.com/for/scientific-compute
+   - 29 GPUs ranked (min 16 GB VRAM)
+   - Price: $0.26 - $7.50/hr
+   - Best Overall: A100 PCIe 80GB (100/100, $3.13/hr)
+   - Best Value: RTX A4000 (70/100, $0.26/hr)

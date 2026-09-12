@@ -1,0 +1,640 @@
+{
+  "url": "https://www.aiminingco.com/for/stable-diffusion",
+  "status": 200,
+  "title": "Best GPUs for Stable Diffusion & Image Generation — Fit Rankings & Pricing | Ai Mining Co. | Ai Mining Co.",
+  "description": "30 GPUs ranked for Stable Diffusion & Image Generation with live rental pricing across 35+ marketplace partners. Generating images with Stable Diffusion, FLUX, SDXL, and other diffusion models.",
+  "html_length": 171243,
+  "links_count": 105,
+  "links": [
+    {
+      "url": "https://www.aiminingco.com/for/stable-diffusion#main-content",
+      "text": "Skip to main content",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/",
+      "text": "Ai Mining Co.",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/signup",
+      "text": "Create Free Account",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/calculator",
+      "text": "Open Cost Calculator",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/a100-pcie-40gb/for/stable-diffusion",
+      "text": "Best OverallA100 PCIe 40GBHighest fit scoreExcellent fit·100/100$1.31/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-3060/for/stable-diffusion",
+      "text": "Best ValueRTX 3060Cheapest with adequate fitGood fit·65/100$0.11/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/a100-pcie-80gb/for/stable-diffusion",
+      "text": "A100 PCIe 80GB",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/a100-sxm-40gb/for/stable-diffusion",
+      "text": "A100 SXM 40GB",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/a100-sxm-80gb/for/stable-diffusion",
+      "text": "A100 SXM 80GB",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/a40/for/stable-diffusion",
+      "text": "A40",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/b200-sxm/for/stable-diffusion",
+      "text": "B200 SXM",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/b300-sxm/for/stable-diffusion",
+      "text": "B300 SXM",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/h100-nvl/for/stable-diffusion",
+      "text": "H100 NVL",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/h100-pcie/for/stable-diffusion",
+      "text": "H100 PCIe",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/h100-sxm/for/stable-diffusion",
+      "text": "H100 SXM",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/h200/for/stable-diffusion",
+      "text": "H200",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/h200-nvl/for/stable-diffusion",
+      "text": "H200 NVL",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/l4/for/stable-diffusion",
+      "text": "L4",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/l40/for/stable-diffusion",
+      "text": "L40",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/l40s/for/stable-diffusion",
+      "text": "L40S",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/mi300x/for/stable-diffusion",
+      "text": "MI300X",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-3090/for/stable-diffusion",
+      "text": "RTX 3090",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-4090/for/stable-diffusion",
+      "text": "RTX 4090",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-5090/for/stable-diffusion",
+      "text": "RTX 5090",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-6000-ada/for/stable-diffusion",
+      "text": "RTX 6000 Ada",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-a5000/for/stable-diffusion",
+      "text": "RTX A5000",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-a6000/for/stable-diffusion",
+      "text": "RTX A6000",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/v100-sxm-32gb/for/stable-diffusion",
+      "text": "V100 SXM 32GB",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-a4000/for/stable-diffusion",
+      "text": "RTX A4000",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-pro-6000-blackwell/for/stable-diffusion",
+      "text": "RTX PRO 6000 Blackwell",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/rtx-pro-4000-blackwell/for/stable-diffusion",
+      "text": "RTX PRO 4000 Blackwell",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/t4/for/stable-diffusion",
+      "text": "T4",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/v100-pcie-16gb/for/stable-diffusion",
+      "text": "V100 PCIe 16GB",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu/v100-sxm-16gb/for/stable-diffusion",
+      "text": "V100 SXM 16GB",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/for/llm-training",
+      "text": "LLM TrainingAI",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/for/llm-inference",
+      "text": "LLM InferenceAI",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/for/computer-vision",
+      "text": "Computer VisionAI",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/for/3d-rendering",
+      "text": "3D RenderingGraphics",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/for/scientific-compute",
+      "text": "Scientific ComputingCompute",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/for/video-transcoding",
+      "text": "Video TranscodingGraphics",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/salad/for/stable-diffusion",
+      "text": "SaladCloud100/1005viable GPUs · from $0.08/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/akash/for/stable-diffusion",
+      "text": "Akash100/1008viable GPUs · from $0.10/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/quickpod/for/stable-diffusion",
+      "text": "QuickPod100/1007viable GPUs · from $0.10/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/dataoorts/for/stable-diffusion",
+      "text": "DataOorts100/1007viable GPUs · from $0.13/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/hyperstack/for/stable-diffusion",
+      "text": "Hyperstack100/10015viable GPUs · from $0.15/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/ionet/for/stable-diffusion",
+      "text": "io.net100/10016viable GPUs · from $0.18/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/openrelay/for/stable-diffusion",
+      "text": "OpenRelay100/1005viable GPUs · from $0.18/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/theta/for/stable-diffusion",
+      "text": "Theta EdgeCloud100/1003viable GPUs · from $0.20/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/runpod/for/stable-diffusion",
+      "text": "RunPod100/10022viable GPUs · from $0.25/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/trooper/for/stable-diffusion",
+      "text": "Trooper100/1006viable GPUs · from $0.27/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/cloudrift/for/stable-diffusion",
+      "text": "CloudRift100/1005viable GPUs · from $0.28/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/synpixcloud/for/stable-diffusion",
+      "text": "SynpixCloud100/1009viable GPUs · from $0.32/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/hydrahost/for/stable-diffusion",
+      "text": "Hydra Host100/1007viable GPUs · from $0.34/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/cirrascale/for/stable-diffusion",
+      "text": "Cirrascale100/10010viable GPUs · from $0.34/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/cloudpe/for/stable-diffusion",
+      "text": "CloudPe100/1002viable GPUs · from $0.41/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/aime/for/stable-diffusion",
+      "text": "AIME100/1007viable GPUs · from $0.42/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/massedcompute/for/stable-diffusion",
+      "text": "Massed Compute100/10012viable GPUs · from $0.44/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/novacloud/for/stable-diffusion",
+      "text": "NovaCloud100/1002viable GPUs · from $0.48/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/huggingface/for/stable-diffusion",
+      "text": "Hugging Face100/1006viable GPUs · from $0.50/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/neuralrack/for/stable-diffusion",
+      "text": "NeuralRack100/1002viable GPUs · from $0.55/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/verda/for/stable-diffusion",
+      "text": "Verda100/1008viable GPUs · from $0.61/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/packet/for/stable-diffusion",
+      "text": "Packet.ai100/1003viable GPUs · from $0.66/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/upcloud/for/stable-diffusion",
+      "text": "UpCloud100/1004viable GPUs · from $0.69/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/qubrid/for/stable-diffusion",
+      "text": "Qubrid AI100/1007viable GPUs · from $0.73/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/lambda/for/stable-diffusion",
+      "text": "Lambda100/1005viable GPUs · from $0.79/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/ovhcloud/for/stable-diffusion",
+      "text": "OVHcloud100/1006viable GPUs · from $0.80/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/arkane/for/stable-diffusion",
+      "text": "Arkane Cloud100/1008viable GPUs · from $0.89/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/deepinfra/for/stable-diffusion",
+      "text": "DeepInfra100/1004viable GPUs · from $0.89/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/cyfuture/for/stable-diffusion",
+      "text": "Cyfuture AI100/1003viable GPUs · from $1.26/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/thunder/for/stable-diffusion",
+      "text": "Thunder Compute100/1004viable GPUs · from $1.39/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/latitude/for/stable-diffusion",
+      "text": "Latitude.sh100/1002viable GPUs · from $3.37/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/togetherai/for/stable-diffusion",
+      "text": "Together AI100/1002viable GPUs · from $3.99/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider/simplepod/for/stable-diffusion",
+      "text": "SimplePod65/1001viable GPUs · from $0.15/hr",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu",
+      "text": "Browse All GPUs",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/power",
+      "text": "Power",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/carbon",
+      "text": "Carbon",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/dashboard-overview",
+      "text": "AIMC Market Intelligence",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/gpu-global",
+      "text": "AIMC GPU Global Map",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/market-index",
+      "text": "AIMC Market Index",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/watchlist",
+      "text": "GPU Watchlist",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/provider",
+      "text": "GPU Marketplace Directory",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/hyperscaler",
+      "text": "GPU Hyperscaler Reference",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/compare",
+      "text": "GPU Comparisons",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/pricing",
+      "text": "Our Pricing",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/about",
+      "text": "About",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/methodology",
+      "text": "Methodology",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/institutional",
+      "text": "Institutional License",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/insights",
+      "text": "AIMC Insights",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/press",
+      "text": "AIMC Press",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/data-coverage",
+      "text": "Data Coverage",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/data-partners",
+      "text": "Our Data Partners",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/data-partner-program",
+      "text": "Why Marketplaces Join",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/security",
+      "text": "Our Security",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/faq",
+      "text": "FAQ",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/contact",
+      "text": "Contact",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/dashboard/market-index",
+      "text": "AIMC Market Index",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/dashboard/account",
+      "text": "Account",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/dashboard/account/settings",
+      "text": "Settings",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/login",
+      "text": "Log In",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://x.com/Lucas_AIMC",
+      "text": "",
+      "domain": "x.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://discord.gg/Rc7qKpf5",
+      "text": "",
+      "domain": "discord.gg",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.linkedin.com/in/aimctechnologies/",
+      "text": "",
+      "domain": "www.linkedin.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/terms",
+      "text": "Terms",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/privacy",
+      "text": "Privacy",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    },
+    {
+      "url": "https://www.aiminingco.com/sla",
+      "text": "SLA",
+      "domain": "www.aiminingco.com",
+      "is_pdf": false
+    }
+  ]
+}

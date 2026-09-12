@@ -1,0 +1,286 @@
+======================================================================
+AIMININGCO.COM - STABLE DIFFUSION SCRAPE REPORT
+Scraped using Scraper Service
+======================================================================
+
+MAIN PAGE: https://www.aiminingco.com/for/stable-diffusion
+Title: Best GPUs for Stable Diffusion & Image Generation — Fit Rankings & Pricing | Ai Mining Co. | Ai Mining Co.
+Description: 30 GPUs ranked for Stable Diffusion & Image Generation with live rental pricing across 35+ marketplace partners. Generating images with Stable Diffusion, FLUX, SDXL, and other diffusion models.
+
+GPU PAGES SCRAPED: 30
+----------------------------------------------------------------------
+  GPU: A100 PCIe 40GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 93,042 bytes | Links: 50
+
+  GPU: RTX 3060 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 94,838 bytes | Links: 52
+
+  GPU: A100 PCIe 80GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 99,388 bytes | Links: 54
+
+  GPU: A100 SXM 40GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 94,539 bytes | Links: 51
+
+  GPU: A100 SXM 80GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 99,323 bytes | Links: 54
+
+  GPU: A40 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 92,043 bytes | Links: 50
+
+  GPU: B200 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 93,793 bytes | Links: 51
+
+  GPU: B300 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 93,785 bytes | Links: 51
+
+  GPU: H100 NVL for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 95,579 bytes | Links: 52
+
+  GPU: H100 PCIe for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 98,879 bytes | Links: 54
+
+  GPU: H100 SXM for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 100,349 bytes | Links: 55
+
+  GPU: H200 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 89,629 bytes | Links: 49
+
+  GPU: H200 NVL for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 94,052 bytes | Links: 51
+
+  GPU: L4 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 96,547 bytes | Links: 53
+
+  GPU: L40 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 95,148 bytes | Links: 52
+
+  GPU: L40S for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 99,942 bytes | Links: 55
+
+  GPU: MI300X for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 92,326 bytes | Links: 50
+
+  GPU: RTX 3090 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 99,868 bytes | Links: 55
+
+  GPU: RTX 4090 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 99,850 bytes | Links: 55
+
+  GPU: RTX 5090 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 99,893 bytes | Links: 55
+
+  GPU: RTX 6000 Ada for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 100,759 bytes | Links: 56
+
+  GPU: RTX A5000 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 100,455 bytes | Links: 56
+
+  GPU: RTX A6000 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 100,471 bytes | Links: 56
+
+  GPU: V100 SXM 32GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 96,113 bytes | Links: 52
+
+  GPU: RTX A4000 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 90,136 bytes | Links: 50
+
+  GPU: RTX PRO 6000 Blackwell for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining 
+  HTML: 89,894 bytes | Links: 49
+
+  GPU: RTX PRO 4000 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 95,046 bytes | Links: 52
+
+  GPU: T4 for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 93,921 bytes | Links: 51
+
+  GPU: V100 PCIe 16GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 94,944 bytes | Links: 51
+
+  GPU: V100 SXM 16GB for Stable Diffusion & Image Generation — Fit Analysis & Pricing | Ai Mining Co.
+  HTML: 94,849 bytes | Links: 51
+
+
+PROVIDER LINKS (33):
+  - https://www.aiminingco.com/provider/salad/for/stable-diffusion
+  - https://www.aiminingco.com/provider/akash/for/stable-diffusion
+  - https://www.aiminingco.com/provider/quickpod/for/stable-diffusion
+  - https://www.aiminingco.com/provider/dataoorts/for/stable-diffusion
+  - https://www.aiminingco.com/provider/hyperstack/for/stable-diffusion
+  - https://www.aiminingco.com/provider/ionet/for/stable-diffusion
+  - https://www.aiminingco.com/provider/openrelay/for/stable-diffusion
+  - https://www.aiminingco.com/provider/theta/for/stable-diffusion
+  - https://www.aiminingco.com/provider/runpod/for/stable-diffusion
+  - https://www.aiminingco.com/provider/trooper/for/stable-diffusion
+  - https://www.aiminingco.com/provider/cloudrift/for/stable-diffusion
+  - https://www.aiminingco.com/provider/synpixcloud/for/stable-diffusion
+  - https://www.aiminingco.com/provider/hydrahost/for/stable-diffusion
+  - https://www.aiminingco.com/provider/cirrascale/for/stable-diffusion
+  - https://www.aiminingco.com/provider/cloudpe/for/stable-diffusion
+  - https://www.aiminingco.com/provider/aime/for/stable-diffusion
+  - https://www.aiminingco.com/provider/massedcompute/for/stable-diffusion
+  - https://www.aiminingco.com/provider/novacloud/for/stable-diffusion
+  - https://www.aiminingco.com/provider/huggingface/for/stable-diffusion
+  - https://www.aiminingco.com/provider/neuralrack/for/stable-diffusion
+  - https://www.aiminingco.com/provider/verda/for/stable-diffusion
+  - https://www.aiminingco.com/provider/packet/for/stable-diffusion
+  - https://www.aiminingco.com/provider/upcloud/for/stable-diffusion
+  - https://www.aiminingco.com/provider/qubrid/for/stable-diffusion
+  - https://www.aiminingco.com/provider/lambda/for/stable-diffusion
+  - https://www.aiminingco.com/provider/ovhcloud/for/stable-diffusion
+  - https://www.aiminingco.com/provider/arkane/for/stable-diffusion
+  - https://www.aiminingco.com/provider/deepinfra/for/stable-diffusion
+  - https://www.aiminingco.com/provider/cyfuture/for/stable-diffusion
+  - https://www.aiminingco.com/provider/thunder/for/stable-diffusion
+  - https://www.aiminingco.com/provider/latitude/for/stable-diffusion
+  - https://www.aiminingco.com/provider/togetherai/for/stable-diffusion
+  - https://www.aiminingco.com/provider/simplepod/for/stable-diffusion
+
+OTHER AIMINGCO LINKS (39):
+  - https://www.aiminingco.com/for/stable-diffusion#main-content
+  - https://www.aiminingco.com/
+  - https://www.aiminingco.com/signup
+  - https://www.aiminingco.com/calculator
+  - https://www.aiminingco.com/for/llm-training
+  - https://www.aiminingco.com/for/llm-inference
+  - https://www.aiminingco.com/for/computer-vision
+  - https://www.aiminingco.com/for/3d-rendering
+  - https://www.aiminingco.com/for/scientific-compute
+  - https://www.aiminingco.com/for/video-transcoding
+  - https://www.aiminingco.com/gpu
+  - https://www.aiminingco.com/power
+  - https://www.aiminingco.com/carbon
+  - https://www.aiminingco.com/dashboard-overview
+  - https://www.aiminingco.com/gpu-global
+  - https://www.aiminingco.com/market-index
+  - https://www.aiminingco.com/watchlist
+  - https://www.aiminingco.com/provider
+  - https://www.aiminingco.com/hyperscaler
+  - https://www.aiminingco.com/compare
+  - https://www.aiminingco.com/pricing
+  - https://www.aiminingco.com/about
+  - https://www.aiminingco.com/methodology
+  - https://www.aiminingco.com/institutional
+  - https://www.aiminingco.com/insights
+  - https://www.aiminingco.com/press
+  - https://www.aiminingco.com/data-coverage
+  - https://www.aiminingco.com/data-partners
+  - https://www.aiminingco.com/data-partner-program
+  - https://www.aiminingco.com/security
+  - https://www.aiminingco.com/faq
+  - https://www.aiminingco.com/contact
+  - https://www.aiminingco.com/dashboard/market-index
+  - https://www.aiminingco.com/dashboard/account
+  - https://www.aiminingco.com/dashboard/account/settings
+  - https://www.aiminingco.com/login
+  - https://www.aiminingco.com/terms
+  - https://www.aiminingco.com/privacy
+  - https://www.aiminingco.com/sla
+
+
+ALL RAW LINKS FROM MAIN PAGE (105):
+----------------------------------------------------------------------
+  https://www.aiminingco.com/for/stable-diffusion#main-content                     | Skip to main content
+  https://www.aiminingco.com/                                                      | Ai Mining Co.
+  https://www.aiminingco.com/signup                                                | Create Free Account
+  https://www.aiminingco.com/calculator                                            | Open Cost Calculator
+  https://www.aiminingco.com/gpu/a100-pcie-40gb/for/stable-diffusion               | Best OverallA100 PCIe 40GBHighest fit scoreExcellent fit·100
+  https://www.aiminingco.com/gpu/rtx-3060/for/stable-diffusion                     | Best ValueRTX 3060Cheapest with adequate fitGood fit·65/100$
+  https://www.aiminingco.com/gpu/a100-pcie-80gb/for/stable-diffusion               | A100 PCIe 80GB
+  https://www.aiminingco.com/gpu/a100-sxm-40gb/for/stable-diffusion                | A100 SXM 40GB
+  https://www.aiminingco.com/gpu/a100-sxm-80gb/for/stable-diffusion                | A100 SXM 80GB
+  https://www.aiminingco.com/gpu/a40/for/stable-diffusion                          | A40
+  https://www.aiminingco.com/gpu/b200-sxm/for/stable-diffusion                     | B200 SXM
+  https://www.aiminingco.com/gpu/b300-sxm/for/stable-diffusion                     | B300 SXM
+  https://www.aiminingco.com/gpu/h100-nvl/for/stable-diffusion                     | H100 NVL
+  https://www.aiminingco.com/gpu/h100-pcie/for/stable-diffusion                    | H100 PCIe
+  https://www.aiminingco.com/gpu/h100-sxm/for/stable-diffusion                     | H100 SXM
+  https://www.aiminingco.com/gpu/h200/for/stable-diffusion                         | H200
+  https://www.aiminingco.com/gpu/h200-nvl/for/stable-diffusion                     | H200 NVL
+  https://www.aiminingco.com/gpu/l4/for/stable-diffusion                           | L4
+  https://www.aiminingco.com/gpu/l40/for/stable-diffusion                          | L40
+  https://www.aiminingco.com/gpu/l40s/for/stable-diffusion                         | L40S
+  https://www.aiminingco.com/gpu/mi300x/for/stable-diffusion                       | MI300X
+  https://www.aiminingco.com/gpu/rtx-3090/for/stable-diffusion                     | RTX 3090
+  https://www.aiminingco.com/gpu/rtx-4090/for/stable-diffusion                     | RTX 4090
+  https://www.aiminingco.com/gpu/rtx-5090/for/stable-diffusion                     | RTX 5090
+  https://www.aiminingco.com/gpu/rtx-6000-ada/for/stable-diffusion                 | RTX 6000 Ada
+  https://www.aiminingco.com/gpu/rtx-a5000/for/stable-diffusion                    | RTX A5000
+  https://www.aiminingco.com/gpu/rtx-a6000/for/stable-diffusion                    | RTX A6000
+  https://www.aiminingco.com/gpu/v100-sxm-32gb/for/stable-diffusion                | V100 SXM 32GB
+  https://www.aiminingco.com/gpu/rtx-a4000/for/stable-diffusion                    | RTX A4000
+  https://www.aiminingco.com/gpu/rtx-pro-6000-blackwell/for/stable-diffusion       | RTX PRO 6000 Blackwell
+  https://www.aiminingco.com/gpu/rtx-pro-4000-blackwell/for/stable-diffusion       | RTX PRO 4000 Blackwell
+  https://www.aiminingco.com/gpu/t4/for/stable-diffusion                           | T4
+  https://www.aiminingco.com/gpu/v100-pcie-16gb/for/stable-diffusion               | V100 PCIe 16GB
+  https://www.aiminingco.com/gpu/v100-sxm-16gb/for/stable-diffusion                | V100 SXM 16GB
+  https://www.aiminingco.com/for/llm-training                                      | LLM TrainingAI
+  https://www.aiminingco.com/for/llm-inference                                     | LLM InferenceAI
+  https://www.aiminingco.com/for/computer-vision                                   | Computer VisionAI
+  https://www.aiminingco.com/for/3d-rendering                                      | 3D RenderingGraphics
+  https://www.aiminingco.com/for/scientific-compute                                | Scientific ComputingCompute
+  https://www.aiminingco.com/for/video-transcoding                                 | Video TranscodingGraphics
+  https://www.aiminingco.com/provider/salad/for/stable-diffusion                   | SaladCloud100/1005viable GPUs · from $0.08/hr
+  https://www.aiminingco.com/provider/akash/for/stable-diffusion                   | Akash100/1008viable GPUs · from $0.10/hr
+  https://www.aiminingco.com/provider/quickpod/for/stable-diffusion                | QuickPod100/1007viable GPUs · from $0.10/hr
+  https://www.aiminingco.com/provider/dataoorts/for/stable-diffusion               | DataOorts100/1007viable GPUs · from $0.13/hr
+  https://www.aiminingco.com/provider/hyperstack/for/stable-diffusion              | Hyperstack100/10015viable GPUs · from $0.15/hr
+  https://www.aiminingco.com/provider/ionet/for/stable-diffusion                   | io.net100/10016viable GPUs · from $0.18/hr
+  https://www.aiminingco.com/provider/openrelay/for/stable-diffusion               | OpenRelay100/1005viable GPUs · from $0.18/hr
+  https://www.aiminingco.com/provider/theta/for/stable-diffusion                   | Theta EdgeCloud100/1003viable GPUs · from $0.20/hr
+  https://www.aiminingco.com/provider/runpod/for/stable-diffusion                  | RunPod100/10022viable GPUs · from $0.25/hr
+  https://www.aiminingco.com/provider/trooper/for/stable-diffusion                 | Trooper100/1006viable GPUs · from $0.27/hr
+  https://www.aiminingco.com/provider/cloudrift/for/stable-diffusion               | CloudRift100/1005viable GPUs · from $0.28/hr
+  https://www.aiminingco.com/provider/synpixcloud/for/stable-diffusion             | SynpixCloud100/1009viable GPUs · from $0.32/hr
+  https://www.aiminingco.com/provider/hydrahost/for/stable-diffusion               | Hydra Host100/1007viable GPUs · from $0.34/hr
+  https://www.aiminingco.com/provider/cirrascale/for/stable-diffusion              | Cirrascale100/10010viable GPUs · from $0.34/hr
+  https://www.aiminingco.com/provider/cloudpe/for/stable-diffusion                 | CloudPe100/1002viable GPUs · from $0.41/hr
+  https://www.aiminingco.com/provider/aime/for/stable-diffusion                    | AIME100/1007viable GPUs · from $0.42/hr
+  https://www.aiminingco.com/provider/massedcompute/for/stable-diffusion           | Massed Compute100/10012viable GPUs · from $0.44/hr
+  https://www.aiminingco.com/provider/novacloud/for/stable-diffusion               | NovaCloud100/1002viable GPUs · from $0.48/hr
+  https://www.aiminingco.com/provider/huggingface/for/stable-diffusion             | Hugging Face100/1006viable GPUs · from $0.50/hr
+  https://www.aiminingco.com/provider/neuralrack/for/stable-diffusion              | NeuralRack100/1002viable GPUs · from $0.55/hr
+  https://www.aiminingco.com/provider/verda/for/stable-diffusion                   | Verda100/1008viable GPUs · from $0.61/hr
+  https://www.aiminingco.com/provider/packet/for/stable-diffusion                  | Packet.ai100/1003viable GPUs · from $0.66/hr
+  https://www.aiminingco.com/provider/upcloud/for/stable-diffusion                 | UpCloud100/1004viable GPUs · from $0.69/hr
+  https://www.aiminingco.com/provider/qubrid/for/stable-diffusion                  | Qubrid AI100/1007viable GPUs · from $0.73/hr
+  https://www.aiminingco.com/provider/lambda/for/stable-diffusion                  | Lambda100/1005viable GPUs · from $0.79/hr
+  https://www.aiminingco.com/provider/ovhcloud/for/stable-diffusion                | OVHcloud100/1006viable GPUs · from $0.80/hr
+  https://www.aiminingco.com/provider/arkane/for/stable-diffusion                  | Arkane Cloud100/1008viable GPUs · from $0.89/hr
+  https://www.aiminingco.com/provider/deepinfra/for/stable-diffusion               | DeepInfra100/1004viable GPUs · from $0.89/hr
+  https://www.aiminingco.com/provider/cyfuture/for/stable-diffusion                | Cyfuture AI100/1003viable GPUs · from $1.26/hr
+  https://www.aiminingco.com/provider/thunder/for/stable-diffusion                 | Thunder Compute100/1004viable GPUs · from $1.39/hr
+  https://www.aiminingco.com/provider/latitude/for/stable-diffusion                | Latitude.sh100/1002viable GPUs · from $3.37/hr
+  https://www.aiminingco.com/provider/togetherai/for/stable-diffusion              | Together AI100/1002viable GPUs · from $3.99/hr
+  https://www.aiminingco.com/provider/simplepod/for/stable-diffusion               | SimplePod65/1001viable GPUs · from $0.15/hr
+  https://www.aiminingco.com/gpu                                                   | Browse All GPUs
+  https://www.aiminingco.com/power                                                 | Power
+  https://www.aiminingco.com/carbon                                                | Carbon
+  https://www.aiminingco.com/dashboard-overview                                    | AIMC Market Intelligence
+  https://www.aiminingco.com/gpu-global                                            | AIMC GPU Global Map
+  https://www.aiminingco.com/market-index                                          | AIMC Market Index
+  https://www.aiminingco.com/watchlist                                             | GPU Watchlist
+  https://www.aiminingco.com/provider                                              | GPU Marketplace Directory
+  https://www.aiminingco.com/hyperscaler                                           | GPU Hyperscaler Reference
+  https://www.aiminingco.com/compare                                               | GPU Comparisons
+  https://www.aiminingco.com/pricing                                               | Our Pricing
+  https://www.aiminingco.com/about                                                 | About
+  https://www.aiminingco.com/methodology                                           | Methodology
+  https://www.aiminingco.com/institutional                                         | Institutional License
+  https://www.aiminingco.com/insights                                              | AIMC Insights
+  https://www.aiminingco.com/press                                                 | AIMC Press
+  https://www.aiminingco.com/data-coverage                                         | Data Coverage
+  https://www.aiminingco.com/data-partners                                         | Our Data Partners
+  https://www.aiminingco.com/data-partner-program                                  | Why Marketplaces Join
+  https://www.aiminingco.com/security                                              | Our Security
+  https://www.aiminingco.com/faq                                                   | FAQ
+  https://www.aiminingco.com/contact                                               | Contact
+  https://www.aiminingco.com/dashboard/market-index                                | AIMC Market Index
+  https://www.aiminingco.com/dashboard/account                                     | Account
+  https://www.aiminingco.com/dashboard/account/settings                            | Settings
+  https://www.aiminingco.com/login                                                 | Log In
+  https://x.com/Lucas_AIMC                                                         | 
+  https://discord.gg/Rc7qKpf5                                                      | 
+  https://www.linkedin.com/in/aimctechnologies/                                    | 
+  https://www.aiminingco.com/terms                                                 | Terms
+  https://www.aiminingco.com/privacy                                               | Privacy
+  https://www.aiminingco.com/sla                                                   | SLA
